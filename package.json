@@ -10,9 +10,10 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "deploy-gh": "./deploy-gh.sh"
   },
-  "repository": "",
+  "repository": "https://github.com/mattmazzola/mattmazzola.github.io",
   "engines": {
     "node": ">= 0.10.0"
   },
