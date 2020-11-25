@@ -22,8 +22,8 @@ const App: React.FC = () => {
         {featuredProject &&
           <FeaturedProject project={featuredProject} />}
         <div className="projects">
-          {projects.map(project => (
-            <Project project={project} />
+          {projects.map((project, i) => (
+            <Project key={i} project={project} />
           ))}
         </div>
       </main>
