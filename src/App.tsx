@@ -13,7 +13,7 @@ const App: React.FC = () => {
       <header className="app-header">
         <div className="wrapper">
           <div className="header">
-            <img src="images/avatar.png" className="photo" />
+            <img src="images/avatar.png" alt="Matt Mazzola" className="photo" />
             <div className="name">Matt Mazzola</div>
           </div>
         </div>

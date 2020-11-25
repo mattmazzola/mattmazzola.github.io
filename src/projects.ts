@@ -58,6 +58,13 @@ export const projects: Project[]  = [
         description: "React, PWA, Text-To-Speech"
     },
     {
+        name: "ColorQueue",
+        imgUrl: "images/colorqueue.png",
+        codeUrl: "https://github.com/mattmazzola/colorqueueapp",
+        websiteUrl: "https://mattmazzola.medium.com/using-adafruit-dotstar-led-strips-with-raspberry-pi-or-remotely-controlling-raspberry-pi-from-2d20b1792047",
+        description: "Rasb Pi, Firebase, LED Strips"
+    },
+    {
         name: "General Github",
         imgUrl: "images/github_placeholder.png",
         codeUrl: "http://www.github.com/mattmazzola",
