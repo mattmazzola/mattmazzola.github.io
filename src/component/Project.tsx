@@ -6,18 +6,23 @@ type Props = {
     project: models.Project
 }
 
-const Project: React.FC<Props> = (props) => {
-    return (
-        <a className="project" href={props.project.websiteUrl ?? props.project.codeUrl} target="_blank" rel="noreferrer">
-            <img src={props.project.imgUrl} alt={`Preview image for ${props.project.name} project`}/>
-            <div className="metadata">
-                <h3>{props.project.name}</h3>
-                <p>{props.project.description}</p>
+const Project: React.FC<Props> = ({ project }) => {
 
-                {props.project.websiteUrl &&
-                    (
-                        <a href={props.project.codeUrl} className="button-code" target="_blank" rel="noreferrer">Code</a>
-                    )}
+    return (
+        <a className="project" href={project.websiteUrl ?? project.articleUrl ?? project.codeUrl} target="_blank" rel="noreferrer">
+            <img src={project.imgUrl} alt={`Preview image for ${project.name} project`} />
+            <div className="metadata">
+                <div>
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                </div>
+                {(project.articleUrl || project.websiteUrl) && (
+                    <div className="buttons">
+                        {project.articleUrl
+                            && <a href={project.articleUrl} className="button-article" target="_blank" rel="noreferrer">Article</a>}
+                        <a href={project.codeUrl} className="button-code" target="_blank" rel="noreferrer">Code</a>
+                    </div>
+                )}
             </div>
         </a>
     )

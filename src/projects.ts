@@ -9,6 +9,13 @@ export const projects: Project[]  = [
         description: "React Drag-n Drop controls, Node/SQL service",
     },
     {
+        name: "Elo Rating System",
+        imgUrl: "images/elo01.png",
+        codeUrl: "https://github.com/sc2iq/sc2iq/tree/master/packages/ratingSystem",
+        websiteUrl: "https://mattmazzola.medium.com/understanding-the-elo-rating-system-264572c7a2b4",
+        description: "Elo Rating System, Logistic Curve"
+    },
+    {
         name: "Slate Mention Editor",
         imgUrl: "images/slateMentionEditor.png",
         codeUrl: "http://www.github.com/mattmazzola/slate-mention-editor",
@@ -37,28 +44,18 @@ export const projects: Project[]  = [
         description: "SlateJS, keyword selection",
     },
     {
-        name: "General Github",
-        imgUrl: "images/github_placeholder.png",
-        codeUrl: "http://www.github.com/mattmazzola",
-        description: "Various Projects",
+        name: "React Simple Auth",
+        imgUrl: "images/reactSimpleAuth.png",
+        codeUrl: "https://github.com/mattmazzola/react-simple-auth",
+        websiteUrl: "https://mattmazzola.medium.com/react-simple-auth-react-redux-oauth-2-0-de6ea9df0a63",
+        description: "React Authentication, Ember Simple Auth"
     },
     {
-        name: "General Github",
-        imgUrl: "images/github_placeholder.png",
-        codeUrl: "http://www.github.com/mattmazzola",
-        description: "Various Projects",
-    },
-    {
-        name: "General Github",
-        imgUrl: "images/github_placeholder.png",
-        codeUrl: "http://www.github.com/mattmazzola",
-        description: "Various Projects",
-    },
-    {
-        name: "General Github",
-        imgUrl: "images/github_placeholder.png",
-        codeUrl: "http://www.github.com/mattmazzola",
-        description: "Various Projects",
+        name: "Unofficial FRC Trainer",
+        imgUrl: "images/frc.png",
+        codeUrl: "https://github.com/mattmazzola/frc",
+        websiteUrl: "https://frc.surge.sh/",
+        description: "React, PWA, Text-To-Speech"
     },
     {
         name: "General Github",

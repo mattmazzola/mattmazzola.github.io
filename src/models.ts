@@ -4,6 +4,7 @@ export type Project = {
     imgUrl: string
     codeUrl: string
     websiteUrl?: string
+    articleUrl?: string
 
     description: string
 }
