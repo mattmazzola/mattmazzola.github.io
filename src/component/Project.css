@@ -31,6 +31,12 @@
 .project:hover .metadata {
     color: white;
 }
+.project .metadata p {
+    color: rgb(194, 194, 194);
+}
+.project:hover .metadata p {
+    color: white;
+}
 
 .metadata {
     display: grid;
