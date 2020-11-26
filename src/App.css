@@ -50,3 +50,10 @@ main {
 
   padding-bottom: 2rem;
 }
+
+.footer a {
+}
+
+.footer a:visited {
+  color: black;
+}

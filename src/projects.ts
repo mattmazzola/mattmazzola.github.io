@@ -72,7 +72,19 @@ export const projects: Project[]  = [
         description: "Rasb Pi, Firebase, LED Strips"
     },
     {
-        name: "General Github",
+        name: "Medium",
+        imgUrl: "images/medium.png",
+        codeUrl: "http://mattmazzola.medium.com",
+        description: "Varous articles about these projects",
+    },
+    {
+        name: "Twitter",
+        imgUrl: "images/twitter.png",
+        codeUrl: "https://twitter.com/mdmazzola",
+        description: "Thoughts and Announcements",
+    },
+    {
+        name: "Github",
         imgUrl: "images/github_placeholder.png",
         codeUrl: "http://www.github.com/mattmazzola",
         description: "Various Projects",
