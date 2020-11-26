@@ -15,6 +15,7 @@ const App: React.FC = () => {
           <div className="header">
             <img src="images/avatar.png" alt="Matt Mazzola" className="photo" />
             <div className="name">Matt Mazzola</div>
+            <div>Personal Projects</div>
           </div>
         </div>
       </header>

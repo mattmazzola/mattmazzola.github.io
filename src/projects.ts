@@ -16,6 +16,13 @@ export const projects: Project[]  = [
         description: "Elo Rating System, Logistic Curve"
     },
     {
+        name: "Sc2Info Chat Bots",
+        imgUrl: "images/sc2infoBot.png",
+        codeUrl: "https://github.com/sc2iq/sc2info/tree/master/bots",
+        websiteUrl: "https://www.sc2info.com/ask",
+        description: "Discord, Twitch, Bots, Fuse.js, Local Extraction"
+    },
+    {
         name: "Slate Mention Editor",
         imgUrl: "images/slateMentionEditor.png",
         codeUrl: "http://www.github.com/mattmazzola/slate-mention-editor",
@@ -26,7 +33,7 @@ export const projects: Project[]  = [
         name: "sc2info.com",
         imgUrl: "images/sc2info.png",
         codeUrl: "http://www.github.com/sc2iq/sc2info",
-        websiteUrl: "https://www.sc2info.com",
+        websiteUrl: "https://www.sc2info.com/units",
         description: "Graphql, foundation for QnA chatbots",
     },
     {
