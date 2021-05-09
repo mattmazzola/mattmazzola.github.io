@@ -10,7 +10,7 @@ const Project: React.FC<Props> = ({ project }) => {
 
     return (
         <a className="project" href={project.websiteUrl ?? project.articleUrl ?? project.codeUrl} target="_blank" rel="noreferrer">
-            <img src={project.imgUrl} alt={`Preview image for ${project.name} project`} />
+            <img src={project.imgUrl} alt={`${project.name} project`} />
             <div className="metadata">
                 <div>
                     <h3>{project.name}</h3>
