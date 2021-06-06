@@ -2,6 +2,12 @@ import { Project } from './models'
 
 export const projects: Project[]  = [
     {
+        name: "Personal Projects Site",
+        imgUrl: "images/projectsSite.png",
+        codeUrl: "https://github.com/mattmazzola/mattmazzola.github.io",
+        description: "This Projects Website",
+    },
+    {
         name: "Women of Valorant",
         imgUrl: "images/womenofvalorant.png",
         codeUrl: "https://github.com/mattmazzola/valorant-women",
