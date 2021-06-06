@@ -17,6 +17,21 @@ const App: React.FC = () => {
             <img src="images/avatar.png" alt="Matt Mazzola" className="photo" />
             <div className="name">Matt Mazzola</div>
             <div>Personal Projects</div>
+            <div className="links">
+              <dl>
+                {links.map(link => {
+                  let { description, href, text } = link
+                  text = text ?? href
+
+                  return (
+                    <>
+                      <dt>{description ? `${description}: ` : ''}</dt>
+                      <dd><a href={href} target="_blank" rel="noreferrer">{text}</a></dd>
+                    </>
+                  )
+                })}
+              </dl>
+            </div>
           </div>
         </div>
       </header>
@@ -48,7 +63,7 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
-    </div>
+    </div >
   )
 }
 

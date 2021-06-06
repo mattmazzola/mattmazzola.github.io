@@ -10,6 +10,7 @@ export type Project = {
 }
 
 export type Link = {
+    description?: string
     href: string
     text?: string
 }

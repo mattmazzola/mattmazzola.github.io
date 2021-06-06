@@ -5,6 +5,11 @@
     overflow: hidden;
 }
 
+/* .project:hover {
+    box-shadow: 0px 0px 0px 3px hsl(215deg 64% 60%);
+    z-index: 1;
+} */
+
 .project img {
     transition: all 0.5s ease-out;
 }
@@ -21,8 +26,8 @@
     bottom: 0;
     z-index: 2;
     padding: 1rem;
-    color: rgb(218, 218, 218);
-    background-color: rgba(0,0,0,0.6);
+    color: hsl(0, 0%, 85%);
+    background-color: hsla(0, 0%, 0%, 0.6);
 
     display: grid;
     grid-gap: 0.5rem;
@@ -32,7 +37,7 @@
     color: white;
 }
 .project .metadata p {
-    color: rgb(194, 194, 194);
+    color: hsl(0, 0%, 76%);
 }
 .project:hover .metadata p {
     color: white;
@@ -68,7 +73,7 @@
 .buttons a {
     border-radius: 1rem;
     padding: 0.25rem 0.5rem;
-    background-color: rgb(83, 83, 83);
+    background-color: hsl(0, 0%, 33%);
     color: white;
     font-size: 0.75rem;
 
@@ -76,11 +81,11 @@
 }
 
 .button-article:hover {
-    background-color: rgb(247, 140, 140);
+    background-color: hsl(0, 87%, 76%);
 }
 
 .button-code:hover {
-    background-color: rgb(130, 193, 230);
+    background-color: hsl(202, 67%, 71%);
 }
 
 
