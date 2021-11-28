@@ -2,6 +2,13 @@ import { Project } from './models'
 
 export const projects: Project[]  = [
     {
+        name: "Slate Entity Labeler v2",
+        imgUrl: "images/slate-next-labeler.png",
+        websiteUrl: "https://mattmazzola.github.io/slate-entity-labeler-next/",
+        codeUrl: "https://github.com/mattmazzola/slate-entity-labeler-next",
+        description: "Rebuilt entity labeler with next version SlateJS",
+    },
+    {
         name: "Personal Projects Site",
         imgUrl: "images/projectsSite.png",
         codeUrl: "https://github.com/mattmazzola/mattmazzola.github.io",

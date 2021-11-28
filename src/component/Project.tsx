@@ -30,6 +30,7 @@ const Project: React.FC<Props> = ({ project }) => {
 
 const PreviewImage = styled.img`
     transition: all 0.5s ease-out;
+    width: 100%;
 
     & p {
         color: hsl(0, 0%, 76%);

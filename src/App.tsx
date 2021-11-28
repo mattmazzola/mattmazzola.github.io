@@ -24,10 +24,10 @@ const App: React.FC = () => {
                   text = text ?? href
 
                   return (
-                    <>
+                    <React.Fragment key={href}>
                       <dt>{description ? `${description}: ` : ''}</dt>
                       <dd><a href={href} target="_blank" rel="noreferrer">{text}</a></dd>
-                    </>
+                    </React.Fragment>
                   )
                 })}
               </dl>
@@ -55,7 +55,7 @@ const App: React.FC = () => {
                   text = text ?? href
 
                   return (
-                    <li><a href={href} target="_blank" rel="noreferrer">{text}</a></li>
+                    <li key={href}><a href={href} target="_blank" rel="noreferrer">{text}</a></li>
                   )
                 })}
               </ul>
@@ -80,36 +80,36 @@ const Header = styled.header`
 
 const CenterWrapper = styled.div`
   margin: 0 auto;
-  width: 1400px;
+  max-width: 1400px;
 `
  
 const HeaderContent = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1em;
   font-size: 3rem;
+  flex-wrap: wrap;
+`
+
+const HeaderLinks = styled.div`
+  font-size: 1rem;
+  color: hsl(0, 0%, 30%);
+
+  & a {
+    color: hsl(224, 51%, 32%);
+  }
 `
 
 const Photo = styled.img`
   border: 4px solid hsl(192, 48%, 62%);
   border-radius: 50%;
+  box-shadow: var(--shadow-elevation-high);
   background-color: grey;
   width: 82px;
   line-height: 0;
 `
 
 const Name = styled.div`
-  margin-right: 3rem;
-`
-
-const HeaderLinks = styled.div`
-  font-size: 1rem;
-  color: hsl(0, 0%, 30%);
-  margin-left: auto;
-
-  & a {
-    color: hsl(224, 51%, 32%);
-  }
 `
 
 const Main = styled.div`
@@ -117,8 +117,8 @@ const Main = styled.div`
 `
 
 const Projects = styled.div`
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 `
 
 const Footer = styled.footer`
@@ -126,12 +126,9 @@ const Footer = styled.footer`
 `
 
 const FooterContent = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
+  padding-bottom: 2em;
 
-  padding-bottom: 2rem;
-
+  & a:link,
   & a:visited {
     color: black;
   }
