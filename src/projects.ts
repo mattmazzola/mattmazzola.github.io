@@ -12,14 +12,14 @@ export const projects: Project[]  = [
         name: "Personal Projects Site",
         imgUrl: "images/projectsSite.png",
         codeUrl: "https://github.com/mattmazzola/mattmazzola.github.io",
-        description: "This Projects Website",
+        description: "Simple Grid of Projects",
     },
     {
         name: "Women of Valorant",
         imgUrl: "images/womenofvalorant.png",
         codeUrl: "https://github.com/mattmazzola/valorant-women",
-        websiteUrl: "https://www.womenofvalorant.com",
-        description: "React Drag-n Drop controls, Node/SQL service",
+        websiteUrl: "https://wov-containerapp-client.wittymushroom-4573c752.westus3.azurecontainerapps.io/",
+        description: "React Drag-n Drop controls, Node / Cosmos SQL service",
     },
     {
         name: "Elo Rating System",
@@ -53,7 +53,7 @@ export const projects: Project[]  = [
         name: "SchultzTables",
         imgUrl: "images/schultztables.png",
         codeUrl: "https://github.com/mattmazzola/schultz-tables",
-        websiteUrl: "https://schultztables.surge.sh/",
+        websiteUrl: "https://schultztables-client.wittymushroom-4573c752.westus3.azurecontainerapps.io/",
         description: "Modals, CSS Grid, Auth0 + TypeScript",
     },
     {
