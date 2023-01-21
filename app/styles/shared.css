@@ -1,0 +1,80 @@
+.previewImage {
+    transition: all 0.5s ease-out;
+    width: 100%;
+}
+
+.previewImage p {
+    color: hsl(0, 0%, 76%);
+}
+
+.metadata {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 1rem;
+
+    align-items: end;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 1rem;
+    color: hsl(0, 0%, 85%);
+    background-color: hsla(0, 0%, 0%, 0.6);
+}
+
+.metadata :is(h2, h3, h4) {
+    margin: 0;
+    padding: 0;
+}
+
+.metadata p {
+    margin: 0;
+    padding: 0;
+
+    font-size: 0.75rem;
+}
+
+.buttons {
+    justify-self: end;
+    display: grid;
+    grid-gap: 0.5rem;
+}
+
+.buttons a {
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem;
+    background-color: hsl(0, 0%, 33%);
+    color: white;
+    font-size: 0.75rem;
+
+    text-decoration: none;
+}
+
+.articleButton:hover {
+    background-color: hsl(0, 87%, 76%);
+}
+
+.codeButton:hover {
+    background-color: hsl(202, 67%, 71%);
+}
+
+.wrapper {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper:hover .previewImage {
+    transform: scale(1.1);
+    transition: all 5s ease-out;
+}
+
+.wrapper:hover .metadata {
+    color: white;
+}
+
+.wrapper p {
+    color: white;
+}
