@@ -33,10 +33,12 @@ $data = [ordered]@{
 Write-Hash "Data" $data
 
 Write-Step "Build and Push $clientImageName Image"
-az acr build -r $registryUrl -t $clientImageName ./site
+docker build -t $clientImageName ./site
+docker push $clientImageName
+# az acr build -r $registryUrl -t $clientImageName ./site
 
 Write-Step "Deploy $clientImageName Container App"
-$clientBicepContainerDeploymentFilePath = "$PSScriptRoot/../../bicep/modules/clientContainerApp.bicep"
+$clientBicepContainerDeploymentFilePath = "$PSScriptRoot/../bicep/modules/clientContainerApp.bicep"
 $clientFqdn = $(az deployment group create `
     -g $personalProjectsResourceGroupName `
     -f $clientBicepContainerDeploymentFilePath `
