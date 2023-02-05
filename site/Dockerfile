@@ -1,8 +1,6 @@
 # base node image
 FROM node:16-bullseye-slim as base
 
-# set for base and all layer that inherit from it
-ENV NODE_ENV production
 # Install all node_modules, including dev dependencies
 FROM base as deps
 
@@ -37,8 +35,6 @@ ENV PORT="8080"
 
 ENV NODE_ENV="production"
 
-WORKDIR /myapp
-
 COPY --from=production-deps /myapp/node_modules /myapp/node_modules
 
 COPY --from=build /myapp/build /myapp/build
@@ -46,4 +42,10 @@ COPY --from=build /myapp/public /myapp/public
 COPY --from=build /myapp/package.json /myapp/package.json
 COPY --from=build /myapp/start.sh /myapp/start.sh
 
-ENTRYPOINT [ "npm", "run", "start" ]
+WORKDIR /myapp
+RUN chmod +x ./start.sh
+
+USER node
+
+# ENTRYPOINT [ "npm", "run", "start" ]
+ENTRYPOINT [ "./start.sh" ]
