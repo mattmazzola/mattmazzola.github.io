@@ -3,6 +3,16 @@ $sharedRgString = 'klgoyi'
 $resourceGroupLocation = "westus3"
 $personalProjectsResourceGroupName = "personalprojects"
 
+echo "PScriptRoot: $PScriptRoot"
+$repoRoot = If ('' -eq $PScriptRoot) {
+  "$PSScriptRoot/.."
+}
+else {
+  "."
+}
+
+echo "Repo Root: $repoRoot"
+
 Import-Module "C:/repos/shared-resources/pipelines/scripts/common.psm1" -Force
 
 Write-Step "Create Resource Group"
@@ -13,7 +23,7 @@ $sharedResourceVars = Get-SharedResourceDeploymentVars $sharedResourceGroupName 
 
 $clientContainerName = "$personalProjectsResourceGroupName-client"
 $clientImageTag = $(Get-Date -Format "yyyyMMddhhmm")
-$clientImageName = "${registryUrl}/${clientContainerName}:${clientImageTag}"
+$clientImageName = "$($sharedResourceVars.registryUrl)/${clientContainerName}:${clientImageTag}"
 
 $data = [ordered]@{
   "clientImageName"             = $clientImageName
@@ -32,7 +42,7 @@ docker push $clientImageName
 # az acr build -r $registryUrl -t $clientImageName ./site
 
 Write-Step "Deploy $clientImageName Container App"
-$clientBicepContainerDeploymentFilePath = "$PSScriptRoot/../bicep/modules/clientContainerApp.bicep"
+$clientBicepContainerDeploymentFilePath = "$repoRoot/bicep/modules/clientContainerApp.bicep"
 $clientFqdn = $(az deployment group create `
     -g $personalProjectsResourceGroupName `
     -f $clientBicepContainerDeploymentFilePath `
