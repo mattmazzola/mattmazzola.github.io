@@ -51,13 +51,6 @@ resource containerApp 'Microsoft.App/containerapps@2022-03-01' = {
           env: [
           ]
           probes: [
-            {
-              type: 'Liveness'
-              httpGet: {
-                path: '/'
-                port: 80
-              }
-            }
           ] 
         }
       ]
