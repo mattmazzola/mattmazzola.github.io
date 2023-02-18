@@ -2,6 +2,13 @@ import { Project } from '~/models'
 
 export const projects: Project[]  = [
     {
+        name: "Batch Processor",
+        imgUrl: "images/BatchProcessor.png",
+        websiteUrl: "https://mattmazzola.medium.com/how-to-build-a-scalable-background-processor-using-azure-container-apps-7b6d4ec8e4fe",
+        codeUrl: "https://github.com/mattmazzola/batch-processor",
+        description: "Building scalable Background Processors using Azure Container Apps",
+    },
+    {
         name: "Slate Entity Labeler v2",
         imgUrl: "images/slate-next-labeler.png",
         websiteUrl: "https://mattmazzola.github.io/slate-entity-labeler-next/",
