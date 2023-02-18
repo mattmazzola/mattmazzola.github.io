@@ -47,5 +47,4 @@ RUN chmod +x ./start.sh
 
 USER node
 
-# ENTRYPOINT [ "npm", "run", "start" ]
 ENTRYPOINT [ "./start.sh" ]
