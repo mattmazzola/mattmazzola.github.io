@@ -9,6 +9,7 @@ import {
 } from "@remix-run/react"
 import rootStyles from '~/styles/root.css'
 import sharedStyles from '~/styles/shared.css'
+import tailwindStyles from '~/styles/tailwind.css'
 import dataLinks from '~/data/links'
 import React from "react"
 
@@ -20,6 +21,7 @@ export const meta: MetaFunction = () => ({
 })
 
 export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: tailwindStyles },
   { rel: "stylesheet", href: rootStyles },
   { rel: "stylesheet", href: sharedStyles },
 ]
