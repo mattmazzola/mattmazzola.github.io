@@ -11,18 +11,18 @@ const Project: React.FC<Props> = ({ project }) => {
         ?? project.codeUrl
 
     return (
-        <a className="wrapper project" href={href} target="_blank" rel="noreferrer">
+        <a className="relative h-64 overflow-hidden text-slate-200 hover:text-white" href={href} target="_blank" rel="noreferrer">
             <img className="previewImage" src={project.imgUrl} alt={`${project.name} project`} />
-            <div className="metadata">
-                <div>
-                    <h3>{project.name}</h3>
-                    <p>{project.description}</p>
+            <div className="absolute bottom-0 left-0 right-0 flex items-end bg-neutral-900/70 p-4">
+                <div className="flex-1 flex flex-col gap-0.5">
+                    <h3 className="text-2xl font-bold">{project.name}</h3>
+                    <p className="text-xs">{project.description}</p>
                 </div>
                 {(project.articleUrl || project.websiteUrl) && (
-                    <div className="buttons">
+                    <div>
                         {project.articleUrl
-                            && <a className="articleButton" href={project.articleUrl} target="_blank" rel="noreferrer">Article</a>}
-                        <a className="codeButton" href={project.codeUrl} target="_blank" rel="noreferrer">Code</a>
+                            && <a href={project.articleUrl} target="_blank" rel="noreferrer" className="rounded-full bg-neutral-500 hover:bg-sky-300 px-2 py-1 text-xs">Article</a>}
+                        <a href={project.codeUrl} target="_blank" rel="noreferrer" className="rounded-full bg-neutral-500 hover:bg-sky-300 px-2 py-1 text-xs">Code</a>
                     </div>
                 )}
             </div>

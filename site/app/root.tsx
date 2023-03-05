@@ -28,57 +28,48 @@ export const links: LinksFunction = () => [
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="min-h-full">
       <head>
         <Meta />
         <Links />
       </head>
-      <body>
-        <header>
-          <div className="centerWrapper">
-            <div className="headerContent">
-              <img className="photo" src="images/avatar.png" alt="Matt Mazzola" />
-              <div>Matt Mazzola</div>
-              <div>Personal Projects</div>
-              <div className="headerLinks">
-                <dl>
-                  {dataLinks.map(link => {
-                    let { description, href, text } = link
-                    text = text ?? href
+      <body className="h-screen flex flex-col bg-stone-200 font-sans subpixel-antialiased">
+        <header className="container mx-auto flex gap-x-4 justify-between items-center py-6">
+          <img className="h-24 rounded-full outline outline-4 outline-sky-400 shadow-2xl" src="images/avatar.png" alt="Matt Mazzola" />
+          <div className="text-5xl">Matt Mazzola</div>
+          <div className="text-5xl">Personal Projects</div>
+          <dl className="hidden lg:grid grid-cols-[max-content_max-content] gap-x-2">
+            {dataLinks.map(link => {
+              let { description, href, text } = link
+              text = text ?? href
 
-                    return (
-                      <React.Fragment key={href}>
-                        <dt>{description ? `${description}: ` : ''}</dt>
-                        <dd><a href={href} target="_blank" rel="noreferrer">{text}</a></dd>
-                      </React.Fragment>
-                    )
-                  })}
-                </dl>
-              </div>
-            </div>
-          </div>
+              return (
+                <React.Fragment key={href}>
+                  <dt className="font-medium">{description ? `${description}: ` : ''}</dt>
+                  <dd className="underline"><a href={href} target="_blank" rel="noreferrer">{text}</a></dd>
+                </React.Fragment>
+              )
+            })}
+          </dl>
         </header>
-        <main>
+        <main className="flex-1">
           <Outlet />
         </main>
-        <footer>
-          <div className="centerWrapper">
-            <div className="footerContent">
-              <div>
-                <h3>Links</h3>
-                <ul>
-                  {dataLinks.map(link => {
-                    let { href, text } = link
-                    text = text ?? href
+        <footer className="container mx-auto py-12">
+          <h3 className="text-2xl font-bold">Links</h3>
+          <dl className="grid grid-cols-[max-content_max-content] gap-x-2">
+            {dataLinks.map(link => {
+              let { description, href, text } = link
+              text = text ?? href
 
-                    return (
-                      <li key={href}><a href={href} target="_blank" rel="noreferrer">{text}</a></li>
-                    )
-                  })}
-                </ul>
-              </div>
-            </div>
-          </div>
+              return (
+                <React.Fragment key={href}>
+                  <dt className="font-medium">{description ? `${description}: ` : ''}</dt>
+                  <dd className="underline"><a href={href} target="_blank" rel="noreferrer">{text}</a></dd>
+                </React.Fragment>
+              )
+            })}
+          </dl>
         </footer>
         <ScrollRestoration />
         <Scripts />

@@ -10,7 +10,7 @@ export default function Index() {
     <>
       {featuredProject &&
         <FeaturedProject project={featuredProject} />}
-      <div className="projects">
+      <div className="grid grid-cols-4">
         {projects.map((project, i) => (
           <Project key={i} project={project} />
         ))}
