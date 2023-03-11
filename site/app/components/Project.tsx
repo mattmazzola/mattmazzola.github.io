@@ -19,10 +19,10 @@ const Project: React.FC<Props> = ({ project }) => {
                     <p className="text-xs">{project.description}</p>
                 </div>
                 {(project.articleUrl || project.websiteUrl) && (
-                    <div>
+                    <div className="flex gap-2">
                         {project.articleUrl
-                            && <a href={project.articleUrl} target="_blank" rel="noreferrer" className="rounded-full bg-neutral-500 hover:bg-sky-400 px-2 py-1 text-xs">Article</a>}
-                        <a href={project.codeUrl} target="_blank" rel="noreferrer" className="rounded-full bg-neutral-500 hover:bg-sky-400 px-2 py-1 text-xs">Code</a>
+                            && <a href={project.articleUrl} target="_blank" rel="noreferrer" className="rounded-full bg-amber-200/30 hover:bg-amber-500 px-2 py-1 text-xs">Article</a>}
+                        <a href={project.codeUrl} target="_blank" rel="noreferrer" className="rounded-full bg-sky-200/30 hover:bg-sky-400 px-2 py-1 text-xs">Code</a>
                     </div>
                 )}
             </div>
