@@ -13,3 +13,7 @@ docker run -it --rm `
     -p 8080:8080 `
     personalprojects-client
 ```
+
+## Resources
+
+- <https://tailwindcss.com/docs/installation>
