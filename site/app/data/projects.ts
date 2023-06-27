@@ -7,7 +7,7 @@ export const projects: Project[]  = [
         websiteUrl: "https://batch-processor-client.wittymushroom-4573c752.westus3.azurecontainerapps.io/",
         articleUrl: "https://mattmazzola.medium.com/how-to-build-a-scalable-background-processor-using-azure-container-apps-7b6d4ec8e4fe",
         codeUrl: "https://github.com/mattmazzola/batch-processor",
-        description: "Building scalable Background Processors using Azure Container Apps",
+        description: "Scalable Background Processors using Azure Container Apps",
     },
     {
         name: "Slate Entity Labeler v2",

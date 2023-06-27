@@ -33,11 +33,11 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="h-screen flex flex-col bg-stone-200 font-sans subpixel-antialiased">
+      <body className="h-screen flex flex-col bg-slate-900 text-slate-300 font-sans subpixel-antialiased">
         <header className="container mx-auto flex gap-x-4 justify-between items-center px-10 py-6">
-          <img className="h-24 rounded-full outline outline-4 outline-sky-400 shadow-xl" src="images/avatar.png" alt="Matt Mazzola" />
-          <div className="text-5xl">Matt Mazzola</div>
-          <div className="text-5xl">Personal Projects</div>
+          <img className="h-24 rounded-full outline outline-3 outline-sky-400 shadow-xl shadow-cyan-500/50" src="images/avatar.png" alt="Matt Mazzola" />
+          <div className="text-5xl text-slate-100">Matt Mazzola</div>
+          <div className="text-5xl">Projects</div>
           <dl className="hidden xl:grid grid-cols-[max-content_max-content] gap-x-2">
             {dataLinks.map(link => {
               let { description, href, text } = link
@@ -56,7 +56,7 @@ export default function App() {
           <Outlet />
         </main>
         <footer className="container mx-auto py-12">
-          <h3 className="text-2xl font-bold">Links</h3>
+          <h3 className="text-2xl text-slate-100 font-bold">Links</h3>
           <dl className="grid grid-cols-[max-content_max-content] gap-x-2">
             {dataLinks.map(link => {
               let { description, href, text } = link
