@@ -33,7 +33,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="h-screen flex flex-col bg-slate-900 text-slate-300 font-sans subpixel-antialiased">
+      <body className="h-screen flex flex-col bg-gradient-to-r from-slate-900 via-slate-700 from-10% to-slate-900 text-slate-300 font-sans subpixel-antialiased">
         <header className="container mx-auto flex gap-x-4 justify-between items-center px-10 py-6">
           <img className="h-24 rounded-full outline outline-3 outline-sky-400 shadow-xl shadow-cyan-500/50" src="images/avatar.png" alt="Matt Mazzola" />
           <div className="text-5xl text-slate-100">Matt Mazzola</div>
