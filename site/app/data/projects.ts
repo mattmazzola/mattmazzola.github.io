@@ -2,6 +2,14 @@ import { Project } from '~/models'
 
 export const projects: Project[]  = [
     {
+        name: "SC2 Balance Data Processor",
+        imgUrl: "images/azure_functions_file_upload.png",
+        websiteUrl: "https://sc2-info-balancedata-uploader.wittymushroom-4573c752.westus3.azurecontainerapps.io/",
+        articleUrl: "https://mattmazzola.medium.com/how-to-build-an-application-which-processes-user-uploaded-files-using-azure-functions-remix-and-8d0ba7374360",
+        codeUrl: "https://github.com/sc2iq/sc2info/tree/master/apps/balance-data-upload",
+        description: "Use Azure Functions, Remix and XState to process files",
+    },
+    {
         name: "Batch Processor",
         imgUrl: "images/BatchProcessor.png",
         websiteUrl: "https://batch-processor-client.wittymushroom-4573c752.westus3.azurecontainerapps.io/",
