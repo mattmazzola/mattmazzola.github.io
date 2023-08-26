@@ -2,6 +2,13 @@ import { Project } from '~/models'
 
 export const projects: Project[]  = [
     {
+        name: "Question Answering Demo",
+        imgUrl: "images/sc2iq_qna.gif",
+        websiteUrl: "https://sc2iq-qna.wittymushroom-4573c752.westus3.azurecontainerapps.io/",
+        codeUrl: "https://github.com/sc2iq/sc2iq/tree/master/apps/question-answer",
+        description: "RemixJS + Media Stream API + Blob Storage + OpenAI Whisper",
+    },
+    {
         name: "SC2 Balance Data Processor",
         imgUrl: "images/azure_functions_file_upload.png",
         websiteUrl: "https://sc2-info-balancedata-uploader.wittymushroom-4573c752.westus3.azurecontainerapps.io/",
