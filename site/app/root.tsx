@@ -1,4 +1,10 @@
-import type { LinksFunction, MetaFunction } from "@remix-run/node"
+import type { LinksFunction } from "@remix-run/node"
+
+import rootStyles from '~/styles/root.css'
+import sharedStyles from '~/styles/shared.css'
+import tailwindStyles from '~/styles/tailwind.css'
+import dataLinks from '~/data/links'
+import React from "react"
 import {
   Links,
   LiveReload,
@@ -6,25 +12,28 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  V2_MetaFunction,
 } from "@remix-run/react"
-import rootStyles from '~/styles/root.css'
-import sharedStyles from '~/styles/shared.css'
-import tailwindStyles from '~/styles/tailwind.css'
-import dataLinks from '~/data/links'
-import React from "react"
+import { cssBundleHref } from "@remix-run/css-bundle"
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "Matt Mazzola Projects",
-  description: "Matt Mazzola Projects and Experience",
-  viewport: "width=device-width,initial-scale=1",
-})
+export const meta: V2_MetaFunction = () => {
+  return [
+    { charSet: "utf-8" },
+    { name: "viewport", content: "width=device-width,initial-scale=1" },
+    { title: "Matt Mazzola Projects" },
+    { name: "description", content: "Matt Mazzola Projects and Experience" },
+  ]
+}
 
 export const links: LinksFunction = () => [
+  ...(cssBundleHref
+    ? [{ rel: "stylesheet", href: cssBundleHref }]
+    : []),
   { rel: "stylesheet", href: tailwindStyles },
   { rel: "stylesheet", href: rootStyles },
   { rel: "stylesheet", href: sharedStyles },
 ]
+
 
 export default function App() {
   return (
