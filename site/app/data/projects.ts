@@ -69,7 +69,7 @@ export const projects: Project[]  = [
         name: "sc2info.com",
         imgUrl: "images/sc2info.png",
         codeUrl: "http://www.github.com/sc2iq/sc2info",
-        websiteUrl: "https://www.sc2info.com/units",
+        websiteUrl: "https://sc2-info-viewer.wittymushroom-4573c752.westus3.azurecontainerapps.io",
         description: "Graphql, foundation for QnA chatbots",
     },
     {
