@@ -2,6 +2,12 @@ import { Project } from '~/models'
 
 export const projects: Project[]  = [
     {
+        name: "Using Folders outside Workspace root in .devcontainer",
+        imgUrl: "images/user_folder_outside_workspace.png",
+        codeUrl: "https://mattmazzola.medium.com/how-to-use-folders-outside-the-workspace-root-in-a-devcontainer-ce39c9907260",
+        description: "VSCode, Workspace, Devcontainer, Docker",
+    },
+    {
         name: "Question Answering Demo",
         imgUrl: "images/sc2iq_qna.gif",
         websiteUrl: "https://sc2iq-qna.wittymushroom-4573c752.westus3.azurecontainerapps.io/",
