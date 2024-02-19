@@ -14,8 +14,8 @@ export const links: Link[] = [
         href: 'https://mattmazzola.medium.com',
     },
     {
-        description: 'Twitter',
-        href: 'https://twitter.com/mdmazzola',
+        description: 'X',
+        href: 'https://x.com/mdmazzola',
         // text: '@mdmazzola',
     },
 ]
