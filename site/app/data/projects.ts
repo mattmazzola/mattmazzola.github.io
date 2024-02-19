@@ -4,7 +4,7 @@ export const projects: Project[]  = [
     {
         name: "Using Folders outside Workspace root in .devcontainer",
         imgUrl: "images/user_folder_outside_workspace.png",
-        codeUrl: "https://mattmazzola.medium.com/how-to-use-folders-outside-the-workspace-root-in-a-devcontainer-ce39c9907260",
+        articleUrl: "https://mattmazzola.medium.com/how-to-use-folders-outside-the-workspace-root-in-a-devcontainer-ce39c9907260",
         description: "VSCode, Workspace, Devcontainer, Docker",
     },
     {

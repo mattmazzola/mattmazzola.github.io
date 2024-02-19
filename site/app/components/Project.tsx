@@ -22,7 +22,8 @@ const Project: React.FC<Props> = ({ project }) => {
                     <div className="flex gap-2 pointer-events-auto">
                         {project.articleUrl
                             && <a href={project.articleUrl} target="_blank" rel="noreferrer" className="rounded-full bg-amber-200/30 hover:bg-amber-500 px-2 py-1 text-xs">Article</a>}
-                        <a href={project.codeUrl} target="_blank" rel="noreferrer" className="rounded-full bg-sky-200/30 hover:bg-sky-400 px-2 py-1 text-xs">Code</a>
+                        {project.codeUrl
+                            && <a href={project.codeUrl} target="_blank" rel="noreferrer" className="rounded-full bg-sky-200/30 hover:bg-sky-400 px-2 py-1 text-xs">Code</a>}
                     </div>
                 )}
             </div>
