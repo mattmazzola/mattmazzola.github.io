@@ -43,8 +43,7 @@ COPY --from=build /myapp/package.json /myapp/package.json
 COPY --from=build /myapp/start.sh /myapp/start.sh
 
 WORKDIR /myapp
-RUN chmod +x ./start.sh
 
 USER node
 
-ENTRYPOINT [ "./start.sh" ]
+ENTRYPOINT [ "bash", "./start.sh" ]
