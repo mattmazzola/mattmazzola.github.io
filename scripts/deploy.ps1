@@ -10,7 +10,7 @@ else {
 
 echo "Repo Root: $repoRoot"
 
-Import-Module "C:/repos/shared-resources/pipelines/scripts/common.psm1" -Force
+Import-Module "$repoRoot/../shared-resources/pipelines/scripts/common.psm1" -Force
 
 $inputs = @{
   "WhatIf" = $WhatIf
