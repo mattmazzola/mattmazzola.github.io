@@ -1,9 +1,8 @@
-import type { LinksFunction } from "@remix-run/node"
+import type { LinksFunction, LoaderArgs } from "@remix-run/node"
 
 import rootStyles from '~/styles/root.css'
 import sharedStyles from '~/styles/shared.css'
 import tailwindStyles from '~/styles/tailwind.css'
-import dataLinks from '~/data/links'
 import React from "react"
 import {
   Links,
@@ -13,8 +12,10 @@ import {
   Scripts,
   ScrollRestoration,
   V2_MetaFunction,
+  useLoaderData,
 } from "@remix-run/react"
 import { cssBundleHref } from "@remix-run/css-bundle"
+import { Link, Project } from "./models"
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -34,8 +35,19 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: sharedStyles },
 ]
 
+export const loader = async ({ }: LoaderArgs) => {
+  const linksResponse = await fetch(process.env.LINKS_JSON_BLOB_URL!)
+  const links: Link[] = await linksResponse.json()
+
+  const projectsResponse = await fetch(process.env.PROJECTS_JSON_BLOB_URL!)
+  const projects: Project[] = await projectsResponse.json()
+
+  return { links, projects }
+}
 
 export default function App() {
+  const loaderData = useLoaderData<typeof loader>()
+
   return (
     <html lang="en" className="min-h-full">
       <head>
@@ -48,7 +60,7 @@ export default function App() {
           <div className="text-5xl text-slate-100">Matt Mazzola</div>
           <div className="text-5xl">Projects</div>
           <dl className="hidden xl:grid grid-cols-[max-content_max-content] gap-x-2">
-            {dataLinks.map(link => {
+            {loaderData.links.map(link => {
               let { description, href, text } = link
               text = text ?? href
 
@@ -62,12 +74,12 @@ export default function App() {
           </dl>
         </header>
         <main className="flex-1">
-          <Outlet />
+          <Outlet context={loaderData.projects} />
         </main>
         <footer className="container mx-auto py-12">
           <h3 className="text-2xl text-slate-100 font-bold">Links</h3>
           <dl className="grid grid-cols-[max-content_max-content] gap-x-2">
-            {dataLinks.map(link => {
+            {loaderData.links.map(link => {
               let { description, href, text } = link
               text = text ?? href
 

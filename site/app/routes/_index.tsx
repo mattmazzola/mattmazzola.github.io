@@ -1,10 +1,11 @@
+import { useOutletContext } from "@remix-run/react"
 import FeaturedProject from "~/components/FeaturedProject"
 import Project from "~/components/Project"
-import projects from "~/data/projects"
 import * as models from "~/models"
 
 export default function Index() {
   const featuredProject: models.Project | undefined = undefined
+  const projects = useOutletContext<models.Project[]>()
 
   return (
     <>
