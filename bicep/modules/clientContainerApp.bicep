@@ -11,6 +11,9 @@ param registryUsername string
 @secure()
 param registryPassword string
 
+param projectsJsonBlobUrl string
+param linksJsonBlobUrl string
+
 var registryPasswordName = 'container-registry-password'
 
 resource containerApp 'Microsoft.App/containerapps@2022-03-01' = {
@@ -37,7 +40,7 @@ resource containerApp 'Microsoft.App/containerapps@2022-03-01' = {
           value: registryPassword
         }
       ]
-    }   
+    }
     template: {
       containers: [
         {
@@ -49,9 +52,15 @@ resource containerApp 'Microsoft.App/containerapps@2022-03-01' = {
             memory: '0.5Gi'
           }
           env: [
+            {
+              name: 'LINKS_JSON_BLOB_URL'
+              value: linksJsonBlobUrl
+            }
+            {
+              name: 'PROJECTS_JSON_BLOB_URL'
+              value: projectsJsonBlobUrl
+            }
           ]
-          probes: [
-          ] 
         }
       ]
       scale: {

@@ -30,13 +30,20 @@ $clientContainerName = "$personalProjectsResourceGroupName-client"
 $clientImageTag = $(Get-Date -Format "yyyyMMddhhmm")
 $clientImageName = "$($sharedResourceVars.registryUrl)/${clientContainerName}:${clientImageTag}"
 
+$envFilePath = "$repoRoot/site/.env"
+Write-Step "Fetch Vars from .env File: $envFilePath"
+$linksJsonBlobUrl = Get-EnvVarFromFile -envFilePath $envFilePath -variableName 'LINKS_JSON_BLOB_URL'
+$projectsJsonBlobUrl = Get-EnvVarFromFile -envFilePath $envFilePath -variableName 'PROJECTS_JSON_BLOB_URL'
+
 $data = [ordered]@{
   "clientImageName"             = $clientImageName
 
   "containerAppsEnvResourceId"  = $($sharedResourceVars.containerAppsEnvResourceId)
   "registryUrl"                 = $($sharedResourceVars.registryUrl)
   "registryUsername"            = $($sharedResourceVars.registryUsername)
-  "registryPassword"            = "$($($sharedResourceVars.registryPassword).Substring(0, 5))..."
+  "registryPassword"            = "$(Write-Secret $sharedResourceVars.registryPassword)"
+  "linksJsonBlobUrl"            = "$(Write-Secret $linksJsonBlobUrl)"
+  "projectsJsonBlobUrl"         = "$(Write-Secret $projectsJsonBlobUrl)"
 }
 
 Write-Hash "Data" $data
@@ -74,6 +81,8 @@ if ($WhatIf -eq $True) {
     registryPassword=$($sharedResourceVars.registryPassword) `
     imageName=$clientImageName `
     containerName=$clientContainerName `
+    linksJsonBlobUrl=$linksJsonBlobUrl `
+    projectsJsonBlobUrl=$projectsJsonBlobUrl `
     --what-if
 }
 else {
@@ -86,6 +95,8 @@ else {
       registryPassword=$($sharedResourceVars.registryPassword) `
       imageName=$clientImageName `
       containerName=$clientContainerName `
+      linksJsonBlobUrl=$linksJsonBlobUrl `
+      projectsJsonBlobUrl=$projectsJsonBlobUrl `
       --query "properties.outputs.fqdn.value" `
       -o tsv)
   
