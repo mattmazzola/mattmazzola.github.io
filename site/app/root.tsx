@@ -1,9 +1,6 @@
 import type { LinksFunction, LoaderArgs } from "@remix-run/node"
 
-import rootStyles from '~/styles/root.css'
-import sharedStyles from '~/styles/shared.css'
-import tailwindStyles from '~/styles/tailwind.css'
-import React from "react"
+import { cssBundleHref } from "@remix-run/css-bundle"
 import {
   Links,
   LiveReload,
@@ -14,7 +11,10 @@ import {
   V2_MetaFunction,
   useLoaderData,
 } from "@remix-run/react"
-import { cssBundleHref } from "@remix-run/css-bundle"
+import React from "react"
+import rootStyles from '~/styles/root.css'
+import sharedStyles from '~/styles/shared.css'
+import tailwindStyles from '~/styles/tailwind.css'
 import { Link, Project } from "./models"
 
 export const meta: V2_MetaFunction = () => {
@@ -56,7 +56,7 @@ export default function App() {
       </head>
       <body className="h-screen flex flex-col bg-gradient-to-r from-slate-900 via-slate-700 from-10% to-slate-900 text-slate-300 font-sans subpixel-antialiased">
         <header className="container mx-auto flex gap-x-4 justify-between items-center px-10 py-6">
-          <img className="h-24 rounded-full outline outline-3 outline-sky-400 shadow-xl shadow-cyan-500/50" src="https://sharedklgoyistorage.blob.core.windows.net/mattmazzola-github-io/images/avatar.png" alt="Matt Mazzola" />
+          <img className="h-24 rounded-full outline outline-3 outline-sky-400 shadow-xl shadow-cyan-500/50" src="https://sharedzkpwxzstorage.blob.core.windows.net/mattmazzola-github-io/images/avatar.png" alt="Matt Mazzola" />
           <div className="text-5xl text-slate-100">Matt Mazzola</div>
           <div className="text-5xl">Projects</div>
           <dl className="hidden xl:grid grid-cols-[max-content_max-content] gap-x-2">
