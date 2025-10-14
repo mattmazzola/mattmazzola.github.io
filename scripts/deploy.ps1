@@ -1,14 +1,14 @@
 Param([switch]$WhatIf = $True)
 
-echo "PScriptRoot: $PScriptRoot"
+Write-Output "PScriptRoot: $PScriptRoot"
 $repoRoot = If ('' -eq $PScriptRoot) {
   "$PSScriptRoot/.."
 }
-else {
+Else {
   "."
 }
 
-echo "Repo Root: $repoRoot"
+Write-Output "Repo Root: $repoRoot"
 
 Import-Module "$repoRoot/../shared-resources/pipelines/scripts/common.psm1" -Force
 
@@ -19,12 +19,31 @@ $inputs = @{
 Write-Hash "Inputs" $inputs
 
 $sharedResourceGroupName = "shared"
-$sharedRgString = 'klgoyi'
+$sharedRgString = 'zkpwxz'
 $resourceGroupLocation = "westus3"
 $personalProjectsResourceGroupName = "personalprojects"
 
+$sharedResourceNames = Get-ResourceNames $sharedResourceGroupName $sharedRgString
+
 Write-Step "Fetch params from Azure"
 $sharedResourceVars = Get-SharedResourceDeploymentVars $sharedResourceGroupName $sharedRgString
+
+Write-Step "Provision Additional $sharedResourceGroupName Resources (What-If: $($WhatIf))"
+$mainBicepFile = "$repoRoot/bicep/main.bicep"
+
+if ($WhatIf -eq $True) {
+  az deployment group create `
+    -g $sharedResourceGroupName `
+    -f $mainBicepFile `
+    --what-if
+}
+else {
+  az deployment group create `
+    -g $sharedResourceGroupName `
+    -f $mainBicepFile `
+    --query "properties.provisioningState" `
+    -o tsv
+}
 
 $clientContainerName = "$personalProjectsResourceGroupName-client"
 $clientImageTag = $(Get-Date -Format "yyyyMMddhhmm")
@@ -99,7 +118,7 @@ else {
       projectsJsonBlobUrl=$projectsJsonBlobUrl `
       --query "properties.outputs.fqdn.value" `
       -o tsv)
-  
+
   $clientUrl = "https://$clientFqdn"
   Write-Output $clientUrl
 }

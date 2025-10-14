@@ -4,9 +4,9 @@
 
 ```powershell
 az login
-az account set -n "Visual Studio Enterprise Subscription"
+az account set -n "Matt Mazzola - Personal Projects"
 az account show --query "name"
-az acr login --name sharedklgoyiacr
+az acr login --name sharedzkpwxzacr
 
 .\scripts\deploy.ps1 -WhatIf:$true
 ```
