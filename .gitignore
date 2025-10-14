@@ -1,0 +1,6 @@
+# Environment Vars and Secrets
+*.env*.local
+
+# Generated ARM Templates
+arm-*
+*.json
