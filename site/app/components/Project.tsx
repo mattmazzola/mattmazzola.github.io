@@ -6,12 +6,12 @@ type Props = {
 }
 
 const Project: React.FC<Props> = ({ project }) => {
-    const href = project.websiteUrl
+    const imageHref = project.websiteUrl
         ?? project.articleUrl
         ?? project.codeUrl
 
     return (
-        <a className="relative overflow-hidden text-neutral-300 hover:text-white" href={href} target="_blank" rel="noreferrer">
+        <a className="relative overflow-hidden text-neutral-300 hover:text-white" href={imageHref} target="_blank" rel="noreferrer">
             <img className="object-cover object-top w-full h-64 hover:scale-110 hover:duration-[5000ms] duration-1000" src={project.imgUrl} alt={`${project.name} project`} />
             <div className="absolute bottom-0 left-0 right-0 flex items-end bg-neutral-900/70 p-4 pointer-events-none">
                 <div className="flex-1 flex flex-col gap-0.5">
