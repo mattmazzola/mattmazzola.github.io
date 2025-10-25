@@ -1,16 +1,32 @@
 Param([switch]$WhatIf = $True)
 
-Write-Output "PScriptRoot: $PScriptRoot"
-$repoRoot = If ('' -eq $PScriptRoot) {
-  "$PSScriptRoot/.."
+$scriptPath = $MyInvocation.MyCommand.Path
+$scriptDir = Split-Path $scriptPath
+
+# Find repo root by searching upward for README.md
+$currentDir = $scriptDir
+$repoRoot = $null
+while ($currentDir -and -not $repoRoot) {
+  if (Test-Path (Join-Path $currentDir "README.md")) {
+    $repoRoot = $currentDir
+  }
+  else {
+    $currentDir = Split-Path $currentDir
+  }
 }
-Else {
-  "."
+if (-not $repoRoot) {
+  throw "Could not find repo root (no README.md found in parent directories)."
 }
 
-Write-Output "Repo Root: $repoRoot"
+echo "Script Path: $scriptPath"
+echo "Script Dir: $scriptDir"
+echo "Repo Root: $repoRoot"
 
-Import-Module "$repoRoot/../shared-resources/pipelines/scripts/common.psm1" -Force
+$sharedModulePath = Resolve-Path "$repoRoot/../../shared-resources/pipelines/scripts/common.psm1"
+
+echo "Shared Module Path: $sharedModulePath"
+
+Import-Module $sharedModulePath -Force
 
 $inputs = @{
   "WhatIf" = $WhatIf
@@ -19,7 +35,7 @@ $inputs = @{
 Write-Hash "Inputs" $inputs
 
 $sharedResourceGroupName = "shared"
-$sharedRgString = 'zkpwxz'
+$sharedRgString = 'klgoyi'
 $resourceGroupLocation = "westus3"
 $personalProjectsResourceGroupName = "personalprojects"
 

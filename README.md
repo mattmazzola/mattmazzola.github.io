@@ -2,12 +2,18 @@
 
 ## Deployment Test
 
-```powershell
-az login
-az account set -n "Matt Mazzola - Personal Projects"
-az account show --query "name"
-az acr login --name sharedzkpwxzacr
+### Setup Context
 
+```bash
+az login
+az account set -n "Matt Mazzola - Personal Projects Recovered"
+az account show --query "name" -o tsv
+az acr login --name sharedklgoyiacr
+```
+
+### What If Deployment
+
+```powershell
 .\scripts\deploy.ps1 -WhatIf:$true
 ```
 

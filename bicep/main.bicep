@@ -1,5 +1,4 @@
-// TODO: Create blob storage container
-var uniqueRgString = take(uniqueString(subscription().id, resourceGroup().id), 6)
+var uniqueRgString = take(uniqueString(resourceGroup().id), 6)
 
 module storageBlobContainers 'modules/storageBlobContainers.bicep' = {
   name: 'storageBlobContainersModule'
