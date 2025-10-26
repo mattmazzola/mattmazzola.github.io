@@ -22,7 +22,7 @@ echo "Script Path: $scriptPath"
 echo "Script Dir: $scriptDir"
 echo "Repo Root: $repoRoot"
 
-$sharedModulePath = Resolve-Path "$repoRoot/../../shared-resources/pipelines/scripts/common.psm1"
+$sharedModulePath = Resolve-Path "$repoRoot/../shared-resources/pipelines/scripts/common.psm1"
 
 echo "Shared Module Path: $sharedModulePath"
 
@@ -77,8 +77,8 @@ $data = [ordered]@{
   "registryUrl"                 = $($sharedResourceVars.registryUrl)
   "registryUsername"            = $($sharedResourceVars.registryUsername)
   "registryPassword"            = "$(Write-Secret $sharedResourceVars.registryPassword)"
-  "linksJsonBlobUrl"            = "$(Write-Secret $linksJsonBlobUrl)"
-  "projectsJsonBlobUrl"         = "$(Write-Secret $projectsJsonBlobUrl)"
+  "linksJsonBlobUrl"            = $linksJsonBlobUrl
+  "projectsJsonBlobUrl"         = $projectsJsonBlobUrl
 }
 
 Write-Hash "Data" $data
