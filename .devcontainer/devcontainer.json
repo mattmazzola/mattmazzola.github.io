@@ -1,0 +1,61 @@
+{
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils": {
+            "configureZshAsDefaultShell": true
+        },
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+          "installBicep": true
+        },
+        "ghcr.io/azure/azure-dev/azd:0": {},
+        "ghcr.io/devcontainers/features/powershell:1": {},
+        "ghcr.io/devcontainers/features/dotnet": {},
+        "ghcr.io/devcontainers/features/github-cli": {},
+        "ghcr.io/devcontainers/features/python": {},
+        "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
+        "ghcr.io/devcontainers/features/docker-in-docker": {},
+    },
+    // "postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\"",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.stickyScroll.defaultModel": "outlineModel",
+                "editor.stickyScroll.enabled": true,
+                "editor.codeActionsOnSave": {
+                    "source.fixAll": "explicit",
+                    "source.organizeImports": "explicit"
+                }
+            },
+            "extensions": [
+                "eamodio.gitlens",
+                "EditorConfig.EditorConfig",
+                "foxundermoon.shell-format",
+                "GitHub.copilot-chat",
+                "mhutchie.git-graph",
+                "ms-azuretools.azure-dev",
+                "ms-azuretools.vscode-bicep",
+                "ms-azuretools.vscode-docker",
+                "redhat.vscode-yaml",
+            ]
+        }
+    },
+    "hostRequirements": {
+        "gpu": "optional"
+    },
+    "onCreateCommand": "bash .devcontainer/onCreateCommand.sh",
+    "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+    "postStartCommand": "bash .devcontainer/postStartCommand.sh",
+    "runArgs": [
+        "--env-file",
+        ".devcontainer/devcontainer.env",
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/dummyFolder/mattmazzolagithubio,type=bind",
+    "workspaceFolder": "/workspace/dummyFolder/mattmazzolagithubio",
+    "mounts": [
+        {
+            "source": "${localWorkspaceFolder}/../shared-resources",
+            "target": "/workspace/dummyFolder/shared-resources",
+            "type": "bind",
+        }
+    ]
+}
