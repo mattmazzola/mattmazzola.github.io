@@ -12,7 +12,7 @@ az acr login --name sharedklgoyiacr
 az account show --query "name" -o tsv
 ```
 
-## Deploying
+### What If Deployment
 
 ```sh
 # Quick summary
@@ -22,14 +22,8 @@ azd provision --preview
 ./scripts/what-if.sh
 ```
 
-### What If Deployment
-
-```powershell
-.\scripts\deploy.ps1 -WhatIf:$true
-```
-
 ## Deployment
 
 ```powershell
-.\scripts\deploy.ps1 -WhatIf:$false
+azd up
 ```
