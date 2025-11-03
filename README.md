@@ -12,6 +12,16 @@ az acr login --name sharedklgoyiacr
 az account show --query "name" -o tsv
 ```
 
+## Deploying
+
+```sh
+# Quick summary
+azd provision --preview
+
+# Detailed ARM what-if
+./scripts/what-if.sh
+```
+
 ### What If Deployment
 
 ```powershell

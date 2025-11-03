@@ -12,6 +12,7 @@
         "ghcr.io/devcontainers/features/dotnet": {},
         "ghcr.io/devcontainers/features/github-cli": {},
         "ghcr.io/devcontainers/features/python": {},
+        "ghcr.io/devcontainers/features/node": {},
         "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
         "ghcr.io/devcontainers/features/docker-in-docker": {},
     },

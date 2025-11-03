@@ -9,8 +9,7 @@ services:
   site:
     project: site
     host: containerapp
-    language: js
-    dist: build
+    language: docker
     docker:
       path: Dockerfile
 
