@@ -45,7 +45,7 @@ Write-Step "Fetch params from Azure"
 $sharedResourceVars = Get-SharedResourceDeploymentVars $sharedResourceGroupName $sharedRgString
 
 Write-Step "Provision Additional $sharedResourceGroupName Resources (What-If: $($WhatIf))"
-$mainBicepFile = "$repoRoot/bicep/main.bicep"
+$mainBicepFile = "$repoRoot/infra/main.bicep"
 
 if ($WhatIf -eq $True) {
   az deployment group create `
@@ -104,7 +104,7 @@ Write-Step "Get Top Image from $($sharedResourceVars.registryUrl) respository $c
 az acr repository show-tags --name $($sharedResourceVars.registryUrl)  --repository $clientContainerName --orderby time_desc --top 1 -o tsv
 
 Write-Step "Deploy $clientImageName Container App (What-If: $($WhatIf))"
-$clientBicepContainerDeploymentFilePath = "$repoRoot/bicep/modules/clientContainerApp.bicep"
+$clientBicepContainerDeploymentFilePath = "$repoRoot/infra/modules/clientContainerApp.bicep"
 
 if ($WhatIf -eq $True) {
   az deployment group create `

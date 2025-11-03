@@ -1,12 +1,12 @@
 param name string = '${resourceGroup().name}-client'
 param location string = resourceGroup().location
+param tags object = {}
 
 param managedEnvironmentResourceId string
 
 param imageName string
 param containerName string
 
-param registryUrl string
 param registryUsername string
 @secure()
 param registryPassword string
@@ -19,6 +19,7 @@ var registryPasswordName = 'container-registry-password'
 resource containerApp 'Microsoft.App/containerapps@2022-03-01' = {
   name: name
   location: location
+  tags: tags
   properties: {
     managedEnvironmentId: managedEnvironmentResourceId
     configuration: {
@@ -29,7 +30,7 @@ resource containerApp 'Microsoft.App/containerapps@2022-03-01' = {
       }
       registries: [
         {
-          server: registryUrl
+          server: '${registryUsername}.azurecr.io'
           username: registryUsername
           passwordSecretRef: registryPasswordName
         }
@@ -44,8 +45,8 @@ resource containerApp 'Microsoft.App/containerapps@2022-03-01' = {
     template: {
       containers: [
         {
-          image: imageName
           name: containerName
+          image: imageName
           // https://learn.microsoft.com/en-us/azure/container-apps/containers#configuration
           resources: {
             cpu: any('0.25')
@@ -71,4 +72,5 @@ resource containerApp 'Microsoft.App/containerapps@2022-03-01' = {
   }
 }
 
-output fqdn string = containerApp.properties.configuration.ingress.fqdn
+output name string = containerApp.name
+output appUrl string = 'https://${containerApp.properties.configuration.ingress.fqdn}'

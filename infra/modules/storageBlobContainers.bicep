@@ -22,3 +22,7 @@ resource staticFilesContainer 'Microsoft.Storage/storageAccounts/blobServices/co
     publicAccess: 'Blob'
   }
 }
+
+// Public HTTPS URL to the container (since publicAccess = 'Blob')
+// Use the storage account's primary blob endpoint to avoid hardcoding cloud suffixes
+output staticFilesContainerUrl string = '${storageAccount.properties.primaryEndpoints.blob}${staticFilesContainer.name}'

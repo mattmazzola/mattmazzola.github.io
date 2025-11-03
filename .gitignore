@@ -1,6 +1,10 @@
+# Azure Developer CLI
+.azure/*
+!.azure/.gitignore
+!.azure/config.json
+
 # Environment Vars and Secrets
 *.env*.local
 
 # Generated ARM Templates
 arm-*
-*.json
