@@ -15,7 +15,6 @@
         "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
         "ghcr.io/devcontainers/features/docker-in-docker": {},
     },
-    // "postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\"",
     "customizations": {
         "vscode": {
             "settings": {
