@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Dev Fixture Project",
+    "imgUrl": "https://sharedklgoyistorage.blob.core.windows.net/mattmazzola-github-io/images/avatar.png",
+    "description": "This is a placeholder project displayed in local development. Replace with real data from Azure Blob Storage.",
+    "websiteUrl": "https://github.com/mattmazzola",
+    "codeUrl": "https://github.com/mattmazzola"
+  }
+]

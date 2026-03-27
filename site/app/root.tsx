@@ -1,23 +1,21 @@
-import type { LinksFunction, LoaderArgs } from "@remix-run/node"
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node"
+import type { MetaFunction } from "@remix-run/react"
 
-import { cssBundleHref } from "@remix-run/css-bundle"
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-  V2_MetaFunction,
   useLoaderData,
 } from "@remix-run/react"
 import React from "react"
-import rootStyles from '~/styles/root.css'
-import sharedStyles from '~/styles/shared.css'
-import tailwindStyles from '~/styles/tailwind.css'
+import rootStyles from '~/styles/root.css?url'
+import sharedStyles from '~/styles/shared.css?url'
+import tailwindStyles from '~/styles/tailwind.css?url'
 import { Link, Project } from "./models"
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [
     { charSet: "utf-8" },
     { name: "viewport", content: "width=device-width,initial-scale=1" },
@@ -27,15 +25,12 @@ export const meta: V2_MetaFunction = () => {
 }
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref
-    ? [{ rel: "stylesheet", href: cssBundleHref }]
-    : []),
   { rel: "stylesheet", href: tailwindStyles },
   { rel: "stylesheet", href: rootStyles },
   { rel: "stylesheet", href: sharedStyles },
 ]
 
-export const loader = async ({ }: LoaderArgs) => {
+export const loader = async ({ }: LoaderFunctionArgs) => {
   const linksResponse = await fetch(process.env.LINKS_JSON_BLOB_URL!)
   const links: Link[] = await linksResponse.json()
 
@@ -94,7 +89,6 @@ export default function App() {
         </footer>
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   )

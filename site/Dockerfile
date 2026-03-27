@@ -1,5 +1,5 @@
 # base node image
-FROM node:16-bullseye-slim AS base
+FROM node:20-bookworm-slim AS base
 
 # Install all node_modules, including dev dependencies
 FROM base AS deps

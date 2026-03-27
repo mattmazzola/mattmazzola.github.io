@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Smoke Test Project",
+    "imgUrl": "https://via.placeholder.com/150",
+    "description": "A test project used by smoke tests to verify the app renders correctly.",
+    "websiteUrl": "https://example.com",
+    "codeUrl": "https://github.com/mattmazzola/test"
+  },
+  {
+    "name": "Another Project",
+    "imgUrl": "https://via.placeholder.com/150",
+    "description": "A second project to verify list rendering works.",
+    "articleUrl": "https://example.com/article"
+  }
+]
