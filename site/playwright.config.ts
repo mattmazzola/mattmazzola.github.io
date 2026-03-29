@@ -19,8 +19,6 @@ export default defineConfig({
     reuseExistingServer: false,
     env: {
       PORT: "3100",
-      LINKS_JSON_BLOB_URL: "http://localhost:3999/links.json",
-      PROJECTS_JSON_BLOB_URL: "http://localhost:3999/projects.json",
     },
   },
 });

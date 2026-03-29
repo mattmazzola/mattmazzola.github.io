@@ -11,11 +11,15 @@ export default async function globalSetup() {
     const fileName = req.url?.replace(/^\//, "") ?? "";
     const filePath = path.join(fixturesDir, fileName);
 
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    };
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-      res.writeHead(200, { "Content-Type": "application/json" });
+      res.writeHead(200, corsHeaders);
       res.end(fs.readFileSync(filePath));
     } else {
-      res.writeHead(404, { "Content-Type": "application/json" });
+      res.writeHead(404, corsHeaders);
       res.end(JSON.stringify({ error: "Not found" }));
     }
   });

@@ -1,6 +1,10 @@
-import { redirect } from "@remix-run/node"
+import { useNavigate } from "@remix-run/react"
+import { useEffect } from "react"
 
-export const loader = () => {
-  console.log('redirecting to /')
-  return redirect('/')
+export default function CatchAll() {
+  const navigate = useNavigate()
+  useEffect(() => {
+    navigate("/", { replace: true })
+  }, [navigate])
+  return null
 }

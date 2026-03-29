@@ -5,9 +5,9 @@
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
-    "start": "remix-serve ./build/server/index.js",
+    "start": "npx serve build/client --single",
     "typecheck": "tsc",
-    "test": "playwright test",
+    "test": "remix vite:build --mode test && playwright test",
     "test:e2e": "npm run build && playwright test"
   },
   "dependencies": {
