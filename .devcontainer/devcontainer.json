@@ -13,8 +13,8 @@
         "ghcr.io/devcontainers/features/github-cli": {},
         "ghcr.io/devcontainers/features/python": {},
         "ghcr.io/devcontainers/features/node": {},
-        "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
         "ghcr.io/devcontainers/features/docker-in-docker": {},
+        "ghcr.io/eitsupi/devcontainer-features/jq-likes:2": {},
     },
     "customizations": {
         "vscode": {
@@ -35,6 +35,7 @@
                 "ms-azuretools.azure-dev",
                 "ms-azuretools.vscode-bicep",
                 "ms-azuretools.vscode-docker",
+                "ms-vscode.powershell",
                 "redhat.vscode-yaml",
             ]
         }

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "LUIS (Language Understanding)",
+    "imgUrl": "https://sharedklgoyistorage.blob.core.windows.net/mattmazzola-github-io/images/luis.png",
+    "description": "Cognitive Service for conversational language understanding. Build natural language into apps, bots, and IoT devices.",
+    "websiteUrl": "https://luis.ai",
+    "codeUrl": "https://github.com/Azure/cognitive-services-language-understanding"
+  },
+  {
+    "name": "Conversational Learner",
+    "imgUrl": "https://sharedklgoyistorage.blob.core.windows.net/mattmazzola-github-io/images/conversational-learner.png",
+    "description": "Build task-completion bots using machine teaching instead of manually writing rules.",
+    "websiteUrl": "https://github.com/microsoft/conversationlearner",
+    "codeUrl": "https://github.com/microsoft/conversationlearner"
+  },
+  {
+    "name": "mattmazzola.github.io",
+    "imgUrl": "https://sharedklgoyistorage.blob.core.windows.net/mattmazzola-github-io/images/github-io.png",
+    "description": "This portfolio site. Built with Remix, Tailwind CSS, and deployed to Azure Container Apps.",
+    "websiteUrl": "https://mattmazzola.github.io",
+    "codeUrl": "https://github.com/mattmazzola/mattmazzola.github.io"
+  }
+]
