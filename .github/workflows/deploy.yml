@@ -39,6 +39,9 @@ jobs:
 
       - name: Build (production)
         run: npm run build
+        env:
+          VITE_LINKS_JSON_URL: ${{ vars.VITE_LINKS_JSON_URL }}
+          VITE_PROJECTS_JSON_URL: ${{ vars.VITE_PROJECTS_JSON_URL }}
 
       - uses: actions/configure-pages@v5
 
